@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Test importing of external libraries</title>
+    </head>
+    <body>
+        <p></p>
+        <script type="module">
+            import ScriptImporter from './script-importer.js';
+            const si = new ScriptImporter('https://cdn.jsdelivr.net/npm/');
+
+            si.import(['showdown', 'showdown-twitter']).then(() => {
+                const c = new showdown.Converter({extensions: ['twitter']});
+                document.querySelector('p').innerHTML = c.makeHtml(
+                    'It **works**! #markdown'
+                );
+            });
+        </script>
+    </body>
+</html>

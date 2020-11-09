@@ -6,8 +6,6 @@ export default class ScriptImporter {
 
     // Loads a given library via script element in a promise
     importSingle(library) {
-        console.log('prefix: ' + this.prefix);
-        console.log('library: ' + library);
         return new Promise((resolve, reject) => {
             const script    = document.createElement('script');
             script.onload   = resolve;
