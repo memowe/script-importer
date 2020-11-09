@@ -19,6 +19,8 @@ export default class ScriptImporter {
     import(libraries = []) {
         if (typeof libraries === 'string')
             return this.importSingle(libraries);
-        return Promise.all(libraries.map(l => this.importSingle(l)));
+        return libraries.reduce(
+            (a, b) => a.then(() => this.importSingle(b)),
+        Promise.resolve());
     }
 }
