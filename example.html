@@ -9,10 +9,13 @@
             import ScriptImporter from './script-importer.js';
             const si = new ScriptImporter('https://cdn.jsdelivr.net/');
 
-            si.load('npm/showdown', 'npm/showdown-twitter').then(() => {
+            si.load(
+                'gh/memowe/lol-js@global/lol.js',
+                ['npm/showdown', 'npm/showdown-twitter'],
+            ).then(() => {
                 const c = new showdown.Converter({extensions: ['twitter']});
                 document.querySelector('p').innerHTML = c.makeHtml(
-                    'It **works**! #markdown'
+                    lol('It **works**! #markdown')
                 );
             });
         </script>
