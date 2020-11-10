@@ -21,11 +21,19 @@ si.load('foo-library').then(() => {
     workWithFoo();
 });
 
-// Multiple library usage: just append arguments
+// Multiple library usage: just append arguments (loaded in parallel)
 si.load('foo-library', 'dist/bar-library.min.js').then(() => {
     // Everything is loaded
     workWithFoo();
     workWithBar();
+});
+
+// Dependencies, that need to be loaded sequentially, can be connected via an array.
+// In this example, bar-special is loaded when bar-base has finished loading:
+si.load('foo-library', ['bar-base', 'bar-special]).then(() => {
+    // Everything is loaded
+    workWithFoo();
+    workWithBarSpecial();
 });
 ```
 
