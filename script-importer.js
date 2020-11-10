@@ -26,7 +26,10 @@ export default class ScriptImporter {
     // or an array of sequential dependency URLs
     load(...libraries) {
         return Promise.allSettled(
-            libraries.map(libs => this.loadSequential(libs))
+            libraries.map(libs => {
+                if (typeof libs === 'string') libs = [libs];
+                return this.loadSequential(...libs)
+            })
         );
     }
 }
