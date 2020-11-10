@@ -9,7 +9,7 @@
             import ScriptImporter from './script-importer.js';
             const si = new ScriptImporter('https://cdn.jsdelivr.net/npm/');
 
-            si.import(['showdown', 'showdown-twitter']).then(() => {
+            si.import('showdown', 'showdown-twitter').then(() => {
                 const c = new showdown.Converter({extensions: ['twitter']});
                 document.querySelector('p').innerHTML = c.makeHtml(
                     'It **works**! #markdown'

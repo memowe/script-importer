@@ -15,10 +15,8 @@ export default class ScriptImporter {
         })
     }
 
-    // Works with an array of URLs or a simple URL given as string
-    import(libraries = []) {
-        if (typeof libraries === 'string')
-            return this.importSingle(libraries);
+    // Imports a variable amount of libraries given by URLs
+    import(...libraries) {
         return libraries.reduce(
             (a, b) => a.then(() => this.importSingle(b)),
         Promise.resolve());

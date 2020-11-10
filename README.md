@@ -21,9 +21,8 @@ si.import('foo-library').then(() => {
     workWithFoo();
 });
 
-// Multiple library usage
-const deps = ['foo-library', 'dist/bar-library.min.js'];
-si.import(deps).then(() => {
+// Multiple library usage: just append arguments
+si.import('foo-library', 'dist/bar-library.min.js').then(() => {
     // Everything is loaded
     workWithFoo();
     workWithBar();
