@@ -15,10 +15,18 @@ export default class ScriptImporter {
         })
     }
 
-    // Imports a variable amount of libraries given by URLs
-    load(...libraries) {
+    // Imports a variable amount of libraries given by URLs one after another
+    loadSequential(...libraries) {
         return libraries.reduce(
             (a, b) => a.then(() => this.loadSingle(b)),
         Promise.resolve());
+    }
+
+    // Main method: load a single URL or an array of single URLs
+    // or an array of sequential dependency URLs
+    load(...libraries) {
+        return Promise.allSettled(
+            libraries.map(libs => this.loadSequential(libs))
+        );
     }
 }
