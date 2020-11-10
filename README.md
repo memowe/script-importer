@@ -49,7 +49,14 @@ This module is accessible via GitHub Pages and jsDelivr:
     - auto-minified: [.../script-importer.min.js][jsdmin]
     - It [should][jsdgh] be possible to use it with `@latest` or even without that `@`. Sometimes it [doesn't][jsdbug].
 
-## Author and license
+## Contributors
+
+- [\@devolt5][devolt5]
+- [\@memowe][mgh]
+
+Original author: [\@memowe][mgh]
+
+## License
 
 Copyright (c) [Mirko Westermeier][mirko] ([\@memowe][mgh], [mirko@westermeier.de][mmail])
 
@@ -62,7 +69,8 @@ Released under the MIT (X11) license. See [LICENSE][mit] for details.
 [jsdmin]: https://cdn.jsdelivr.net/gh/memowe/script-importer@v0.2/script-importer.min.js
 [jsdgh]: https://www.jsdelivr.com/?docs=gh
 [jsdbug]: https://github.com/jsdelivr/jsdelivr/issues/18216
-[mirko]: http://mirko.westermeier.de
+[devolt5]: https://github.com/devolt5
 [mgh]: https://github.com/memowe
+[mirko]: https://mirko.westermeier.de
 [mmail]: mailto:mirko@westermeier.de
 [mit]: LICENSE
