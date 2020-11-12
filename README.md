@@ -17,12 +17,12 @@ The class can take a `prefix` string (e. g. your favourite CDN) and import singl
 const si = new ScriptImporter('https://cdn.jsdelivr.net/npm/');
 
 // Single library usage
-si.import('foo-library').then(() => {
+si.load('foo-library').then(() => {
     workWithFoo();
 });
 
 // Multiple library usage: just append arguments
-si.import('foo-library', 'dist/bar-library.min.js').then(() => {
+si.load('foo-library', 'dist/bar-library.min.js').then(() => {
     // Everything is loaded
     workWithFoo();
     workWithBar();
