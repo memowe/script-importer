@@ -10,7 +10,7 @@ When used in the browser, this module needs to be imported as a `module`, for ex
 <script type="module" src="./script-importer.js">
 ```
 
-The class can take a `prefix` string (e. g. your favourite CDN) and import single or multiple modules at a time. Its `load` method returns a promise:
+The class can take a URL prefix string (e. g. your favourite CDN) and import single or multiple modules at a time. Its `load` method returns a promise:
 
 ```javascript
 // Initialize with jsdelivr
