@@ -12,11 +12,17 @@
             si.load(
                 'gh/memowe/lol-js@global/lol.js',
                 ['npm/showdown', 'npm/showdown-twitter'],
-            ).then(() => {
+            ).then(results => {
+
+                // Error reporting
+                results.failed.forEach(l => console.log("Couldn't load " + l));
+
+                // Use the libraries
                 const c = new showdown.Converter({extensions: ['twitter']});
                 document.querySelector('p').innerHTML = c.makeHtml(
                     lol('It **works**! #markdown')
                 );
+
             });
         </script>
     </body>
