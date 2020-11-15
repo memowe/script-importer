@@ -35,6 +35,18 @@ si.load('foo-library', ['bar-base', 'bar-special]).then(() => {
     workWithFoo();
     workWithBarSpecial();
 });
+
+// Outside of loading sequences, load is tolerant to failures and reports them
+// together with loaded classes in a combined results object:
+{
+    loaded: [urls],
+    failed: [urls]
+}
+// so this is possible to report failures:
+si.load(...).then(results => {
+    results.failed.forEach(lib => console.log("Couldn't load " + lib));
+    ...
+});
 ```
 
 See [example.html][example] for a markdown example.
