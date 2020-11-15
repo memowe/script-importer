@@ -87,9 +87,9 @@ Released under the MIT (X11) license. See [LICENSE][mit] for details.
 
 [example]: example.html
 [ghp]: https://memowe.github.io/script-importer/script-importer.js
-[jsd]: https://cdn.jsdelivr.net/gh/memowe/script-importer@v0.2/script-importer.js
+[jsd]: https://cdn.jsdelivr.net/gh/memowe/script-importer@v0.3/script-importer.js
 [sitags]: https://github.com/memowe/script-importer/tags
-[jsdmin]: https://cdn.jsdelivr.net/gh/memowe/script-importer@v0.2/script-importer.min.js
+[jsdmin]: https://cdn.jsdelivr.net/gh/memowe/script-importer@v0.3/script-importer.min.js
 [jsdgh]: https://www.jsdelivr.com/?docs=gh
 [jsdbug]: https://github.com/jsdelivr/jsdelivr/issues/18216
 [devolt5]: https://github.com/devolt5
