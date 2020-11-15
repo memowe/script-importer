@@ -31,6 +31,14 @@ export default class ScriptImporter {
                 if (typeof libs === 'string') libs = [libs];
                 return this.loadSequential(...libs)
             })
-        );
+        ).then(this.summarize);
+    }
+
+    // Convert a Promise.allSettled result to a loading summary
+    summarize(res) {
+        return {
+            loaded: res.filter(r => r.status === 'fulfilled').map(r => r.value),
+            failed: res.filter(r => r.status === 'rejected').map(r => r.reason),
+        };
     }
 }
