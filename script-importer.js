@@ -6,11 +6,12 @@ export default class ScriptImporter {
 
     // Loads a given library via script element in a promise
     loadSingle(library) {
+        const url = this.prefix + library;
         return new Promise((resolve, reject) => {
             const script    = document.createElement('script');
-            script.onload   = resolve;
-            script.onerror  = reject;
-            script.src      = this.prefix + library;
+            script.onload   = () => resolve(url);
+            script.onerror  = () => reject(url);
+            script.src      = url;
             document.body.appendChild(script);
         })
     }
@@ -30,6 +31,14 @@ export default class ScriptImporter {
                 if (typeof libs === 'string') libs = [libs];
                 return this.loadSequential(...libs)
             })
-        );
+        ).then(this.summarize);
+    }
+
+    // Convert a Promise.allSettled result to a loading summary
+    summarize(res) {
+        return {
+            loaded: res.filter(r => r.status === 'fulfilled').map(r => r.value),
+            failed: res.filter(r => r.status === 'rejected').map(r => r.reason),
+        };
     }
 }
