@@ -20,29 +20,40 @@ const si = new ScriptImporter('https://cdn.jsdelivr.net/npm/');
 si.load('foo-library').then(() => {
     workWithFoo();
 });
+```
 
-// Multiple library usage: just append arguments (loaded in parallel)
+Multiple library usage: just append arguments (loaded in parallel)
+
+```javascript
 si.load('foo-library', 'dist/bar-library.min.js').then(() => {
     // Everything is loaded
     workWithFoo();
     workWithBar();
 });
+```
 
-// Dependencies, that need to be loaded sequentially, can be connected via an array.
-// In this example, bar-special is loaded when bar-base has finished loading:
+Dependencies, that need to be loaded sequentially, can be connected via an array. In this example, bar-special is loaded when bar-base has finished loading:
+
+```javascript
 si.load('foo-library', ['bar-base', 'bar-special]).then(() => {
     // Everything is loaded
     workWithFoo();
     workWithBarSpecial();
 });
+```
 
-// Outside of loading sequences, load is tolerant to failures and reports them
-// together with loaded classes in a combined results object:
+Outside of loading sequences, load is tolerant to failures and reports them together with loaded classes in a combined results object:
+
+```javascript
 {
     loaded: [urls],
     failed: [urls]
 }
-// so this is possible to report failures:
+```
+
+So loading errors can be reported easily:
+
+```javascript
 si.load(...).then(results => {
     results.failed.forEach(lib => console.log("Couldn't load " + lib));
     ...
