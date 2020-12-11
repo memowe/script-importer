@@ -35,7 +35,7 @@ si.load('foo-library', 'dist/bar-library.min.js').then(() => {
 Dependencies, that need to be loaded sequentially, can be connected via an array. In this example, bar-special is loaded when bar-base has finished loading:
 
 ```javascript
-si.load('foo-library', ['bar-base', 'bar-special]).then(() => {
+si.load('foo-library', ['bar-base', 'bar-special']).then(() => {
     // Everything is loaded
     workWithFoo();
     workWithBarSpecial();
